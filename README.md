@@ -4,6 +4,7 @@
 An application that allows you calculate how much solar power you need to run your home
 
 **Basic App work flow
+
 1 User visits the page
 
 2 Enters details of electornics
