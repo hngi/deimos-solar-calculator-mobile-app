@@ -8,4 +8,5 @@
     <string name="add_an_appliance">Add an Appliance</string>
     <string name="reset">Reset</string>
     <string name="hrs_day">Hrs/Day</string>
+    <string name="calculate_the_total_power_needed">Calculate the Total Power needed</string>
 </resources>
