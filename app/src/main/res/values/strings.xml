@@ -7,4 +7,5 @@
     <string name="watts">Watts</string>
     <string name="add_an_appliance">Add an Appliance</string>
     <string name="reset">Reset</string>
+    <string name="hrs_day">Hrs/Day</string>
 </resources>
