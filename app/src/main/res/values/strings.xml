@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Solar Power Calculator</string>
+    <string name="avg_sunlight_day">Avg. Sunlight/Day</string>
+    <string name="_0">0</string>
 </resources>
