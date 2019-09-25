@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,16 +23,11 @@ public class MainActivity extends AppCompatActivity {
     private Button calculate; //To do the math
 
 
-    //Layout
-    private ConstraintLayout parentConstraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //Initialize Layout
-        parentConstraintLayout = (ConstraintLayout) findViewById(R.id.parent_const_layout);
 
 
         //Initialize Views
