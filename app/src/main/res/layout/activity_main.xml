@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none"
     android:background="#ffd500"
     android:padding="20dp"
+    android:scrollbars="none"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -83,7 +83,6 @@
         </LinearLayout>
 
         <EditText
-            android:textSize="15sp"
             android:id="@+id/edit_text_watts_or_hp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,6 +97,7 @@
             android:padding="10dp"
             android:textAlignment="center"
             android:textColor="@android:color/black"
+            android:textSize="15sp"
             android:visibility="invisible" />
 
 
@@ -110,7 +110,6 @@
             android:orientation="horizontal">
 
             <EditText
-                android:visibility="invisible"
                 android:id="@+id/edit_text_voltage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -126,10 +125,10 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible" />
 
             <EditText
-                android:visibility="invisible"
                 android:id="@+id/edit_text_amps"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -145,7 +144,8 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible" />
 
 
         </LinearLayout>
@@ -185,7 +185,6 @@
 
         </LinearLayout>
 
-
         <include
             android:id="@+id/recycler_include"
             layout="@layout/appliances_recycler"
@@ -214,14 +213,14 @@
 
         <Button
             android:id="@+id/reset_btn"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/recycler_include"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/reset_btn_decoration"
             android:drawableEnd="@drawable/ic_refresh"
+            android:gravity="center_vertical"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:text="@string/reset"
