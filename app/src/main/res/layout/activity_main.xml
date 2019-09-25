@@ -155,7 +155,7 @@
             android:id="@+id/duration_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/add_an_appliance_btn"
+            android:layout_below="@id/volt_and_amps_layout"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
@@ -191,7 +191,7 @@
             layout="@layout/appliances_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/duration_layout"
+            android:layout_below="@id/add_an_appliance_btn"
             android:layout_marginTop="20dp" />
 
 
@@ -199,7 +199,7 @@
             android:id="@+id/add_an_appliance_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/volt_and_amps_layout"
+            android:layout_below="@id/duration_layout"
             android:layout_marginTop="50dp"
             android:backgroundTint="@android:color/black"
             android:drawableStart="@drawable/ic_add"
