@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:background="#ffd500"
     android:padding="20dp"
+    android:scrollbars="none"
     tools:context=".MainActivity">
+
 
     <RelativeLayout
         android:id="@+id/parent_const_layout"
@@ -30,7 +32,7 @@
                 android:textSize="25sp" />
 
             <EditText
-                android:id="@+id/edt_avg_sunlight"
+                android:id="@+id/avg_sun"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -56,7 +58,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/edit_text_appliance_name"
+                android:id="@+id/appliance_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
@@ -76,14 +78,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:entries="@array/rating_type"
                 android:gravity="end"
                 android:padding="10dp" />
 
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edit_text_watts_or_hp"
+            android:id="@+id/watts_or_hp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/device_layout"
@@ -107,11 +108,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/device_layout"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:visibility="invisible">
+            android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/edit_text_voltage"
+                android:id="@+id/voltage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
@@ -126,10 +126,11 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible" />
 
             <EditText
-                android:id="@+id/edit_text_amps"
+                android:id="@+id/amps"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -144,7 +145,8 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible" />
 
 
         </LinearLayout>
@@ -154,7 +156,7 @@
             android:id="@+id/duration_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/add_an_appliance_btn"
+            android:layout_below="@id/volt_and_amps_layout"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
@@ -168,7 +170,7 @@
                 android:textSize="25sp" />
 
             <EditText
-                android:id="@+id/edt_duration_of_device"
+                android:id="@+id/duration_of_device"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -184,13 +186,12 @@
 
         </LinearLayout>
 
-
         <include
             android:id="@+id/recycler_include"
             layout="@layout/appliances_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/duration_layout"
+            android:layout_height="500dp"
+            android:layout_below="@id/add_an_appliance_btn"
             android:layout_marginTop="20dp" />
 
 
@@ -198,7 +199,7 @@
             android:id="@+id/add_an_appliance_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/volt_and_amps_layout"
+            android:layout_below="@id/duration_layout"
             android:layout_marginTop="50dp"
             android:backgroundTint="@android:color/black"
             android:drawableStart="@drawable/ic_add"
@@ -216,11 +217,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/recycler_include"
-            android:layout_marginStart="130dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="130dp"
             android:background="@drawable/reset_btn_decoration"
             android:drawableEnd="@drawable/ic_refresh"
+            android:gravity="center_vertical"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:text="@string/reset"
@@ -231,9 +232,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/reset_btn"
-            android:layout_marginStart="50dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="0dp"
             android:background="@drawable/calc_btn_decor"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
