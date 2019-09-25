@@ -3,10 +3,10 @@ package com.chydee.solarpowercalculator.model;
 public class Appliances {
 
     private String mApplianceName;
-    private int mApplianceWattage;
-    private int mApplianceDurationOfUse;
+    private String mApplianceWattage;
+    private String mApplianceDurationOfUse;
 
-    public Appliances(String applianceName, int applianceWattage, int applianceDurationOfUse) {
+    public Appliances(String applianceName, String applianceWattage, String  applianceDurationOfUse) {
         mApplianceName = applianceName;
         mApplianceWattage = applianceWattage;
         mApplianceDurationOfUse = applianceDurationOfUse;
@@ -18,11 +18,11 @@ public class Appliances {
         return mApplianceName;
     }
 
-    public int getApplianceWattage() {
+    public String getApplianceWattage() {
         return mApplianceWattage;
     }
 
-    public int getApplianceDurationOfUse() {
+    public String getApplianceDurationOfUse() {
         return mApplianceDurationOfUse;
     }
 }
