@@ -19,9 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText applianceVolt; // for appliances with volts and amps instead of watts
     private EditText applianceAmps;
 
-    //for appliances with Horse Power (HP) or watts instead of voltage, and/or amps
-    //Appliances with power rated in watts
-    private EditText applianceWattage;
+    //1hp
+    public static final int ONE_HORSE_POWER = 746; //Electrical horsepower 1 hp(E) = 746 W = 0.746 kW
 
 
     //Buttons
@@ -32,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     //Spinner
     private Spinner ratingSpinner;
-
-
+    //for appliances with Horse Power (HP) or watts instead of voltage, and/or amps
+    //Appliances with power rated in watts
+    private EditText applianceWattorHP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,9 @@ public class MainActivity extends AppCompatActivity {
         //EditText
         avgSunlightPerDay = findViewById(R.id.edt_avg_sunlight);
         applianceName = findViewById(R.id.edit_text_appliance_name);
-
-
+        applianceWattorHP = findViewById(R.id.edit_text_watts_or_hp);
+        applianceVolt = findViewById(R.id.edit_text_voltage);
+        applianceAmps = findViewById(R.id.edit_text_amps);
         //Buttons
         addAppliance = findViewById(R.id.add_an_appliance_btn);
         reset = findViewById(R.id.reset_btn);
@@ -66,7 +67,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+//Call this when Spinner Item is selected
+    private void ratingSelected(){
 
-    private void ratingSelected(){}
+        if (ratingSpinner.getSelectedItem() == "Watts"){
+            applianceWattorHP.setVisibility(View.VISIBLE);
+        } else if (ratingSpinner.getSelectedItem() == "Horse Power"){
+            applianceWattorHP.setVisibility(View.VISIBLE);
+        } else {
+            applianceVolt.setVisibility(View.VISIBLE);
+            applianceAmps.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+
 
 }

@@ -107,10 +107,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/device_layout"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:visibility="invisible">
+            android:orientation="horizontal">
 
             <EditText
+                android:visibility="invisible"
                 android:id="@+id/edit_text_voltage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -129,6 +129,7 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:visibility="invisible"
                 android:id="@+id/edit_text_amps"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
