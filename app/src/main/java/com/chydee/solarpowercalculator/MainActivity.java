@@ -13,10 +13,14 @@ public class MainActivity extends AppCompatActivity {
     //EditTexts
     private EditText avgSunlightPerDay;
     private EditText applianceName;
-    private EditText applianceQuantity;
+    //Appliances with power rated in watts
     private EditText applianceWattage;
     private EditText numberOfHrsPerDay; //Indicates the number of hours the appliance is in use on a daily basis
+    private EditText applianceVolt; // for appliances with volts and amps instead of watts
+    private EditText applianceAmps;
 
+    //for appliances with Horse Power (HP) instead of watts, voltage, and/or amps
+    private EditText applianceHP;
     //Buttons
     private Button addAppliance;
     private Button reset; // Used for clearing all fields
@@ -34,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
         //EditText
         avgSunlightPerDay = findViewById(R.id.edt_avg_sunlight);
         applianceName = findViewById(R.id.edit_text_appliance_name);
-        applianceQuantity = findViewById(R.id.edit_quantity);
-        applianceWattage = findViewById(R.id.edit_watts);
-        numberOfHrsPerDay = findViewById(R.id.edit_hrs);
 
 
         //Buttons

@@ -11,15 +11,6 @@
         android:id="@+id/parent_const_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-  
-   <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
         <LinearLayout
@@ -44,11 +35,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:background="@drawable/input_field_decoration"
-                android:maxLines="1"
                 android:ems="10"
                 android:hint="@string/_0"
                 android:importantForAutofill="no"
                 android:inputType="number"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -91,6 +82,24 @@
 
         </LinearLayout>
 
+        <EditText
+            android:id="@+id/edit_text_watts_or_hp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/device_layout"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_field_decoration"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="@string/enter_device_rating_in_watts_or_hp_here"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:visibility="invisible" />
+
 
         <LinearLayout
             android:id="@+id/volt_and_amps_layout"
@@ -98,8 +107,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/device_layout"
             android:layout_marginTop="20dp"
-            android:visibility="invisible"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="invisible">
 
             <EditText
                 android:id="@+id/edit_text_voltage"
@@ -211,10 +220,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="130dp"
             android:background="@drawable/reset_btn_decoration"
-            android:text="@string/reset"
             android:drawableEnd="@drawable/ic_refresh"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
+            android:text="@string/reset"
             android:textSize="20sp" />
 
         <Button
