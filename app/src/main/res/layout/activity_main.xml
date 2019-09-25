@@ -133,7 +133,7 @@
             android:id="@+id/duration_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/volt_and_amps_layout"
+            android:layout_below="@id/add_an_appliance_btn"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
@@ -177,7 +177,7 @@
             android:id="@+id/add_an_appliance_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recycler_include"
+            android:layout_below="@id/volt_and_amps_layout"
             android:layout_marginTop="50dp"
             android:backgroundTint="@android:color/black"
             android:drawableStart="@drawable/ic_add"
@@ -194,7 +194,7 @@
             android:id="@+id/reset_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/add_an_appliance_btn"
+            android:layout_below="@id/recycler_include"
             android:layout_marginStart="150dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="150dp"
