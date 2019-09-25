@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Solar Power Calculator</string>
+    <string name="avg_sunlight_day">Avg. Sunlight/Day</string>
+    <string name="_0">0</string>
+    <string name="input_appliance_name">Input Appliance Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="watts">Watts</string>
+    <string name="add_an_appliance">Add Appliance</string>
+    <string name="reset">Reset</string>
+    <string name="hrs_day">Hrs/Day</string>
+    <string name="calculate_the_total_power_needed">Calculate the Total Power needed</string>
+    <string name="duration_of_use">Duration of Use</string>
+
+
+    <string-array name="rating_type">
+        <item>Watt</item>
+        <item>Horse Power</item>
+        <item>Volts(V) &amp; Amps(A)</item>
+    </string-array>
 </resources>
