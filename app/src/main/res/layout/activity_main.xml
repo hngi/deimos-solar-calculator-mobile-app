@@ -31,7 +31,7 @@
                 android:textSize="25sp" />
 
             <EditText
-                android:id="@+id/edt_avg_sunlight"
+                android:id="@+id/avg_sun"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -57,7 +57,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/edit_text_appliance_name"
+                android:id="@+id/appliance_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
@@ -83,7 +83,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edit_text_watts_or_hp"
+            android:id="@+id/watts_or_hp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/device_layout"
@@ -105,12 +105,12 @@
             android:id="@+id/volt_and_amps_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_watts_or_hp"
+            android:layout_below="@id/device_layout"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/edit_text_voltage"
+                android:id="@+id/voltage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
@@ -129,7 +129,7 @@
                 android:visibility="invisible" />
 
             <EditText
-                android:id="@+id/edit_text_amps"
+                android:id="@+id/amps"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -169,7 +169,7 @@
                 android:textSize="25sp" />
 
             <EditText
-                android:id="@+id/edt_duration_of_device"
+                android:id="@+id/duration_of_device"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -189,7 +189,7 @@
             android:id="@+id/recycler_include"
             layout="@layout/appliances_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="500dp"
             android:layout_below="@id/add_an_appliance_btn"
             android:layout_marginTop="20dp" />
 

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Appliances> mAppliances;
 
+
+    //public usable variables
+    String aplName;
+    String aplWattage;
+    String aplDuration;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         mAppliances = new ArrayList<>();
-        mAppliances.add(new Appliances("Radio", "80", "5"));
-        mAppliances.add(new Appliances("TV", "70", "5"));
-        mAppliances.add(new Appliances("Laptop", "200", "12"));
         //recycler view
         mRecyclerView = findViewById(R.id.appliance_recycler);
         mRecyclerView.setHasFixedSize(true); //Increases the app's performance since the size of the items layout won't increase
@@ -79,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
         addAppliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = 3;
+                int position = 0;
                 insertAppliance(position);
+
 
             }
         });
@@ -88,8 +93,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void insertAppliance(int position) {
-        mAppliances.add(new Appliances("Laptop", "200", "12"));
+        aplName = applianceName.getText().toString();
+        aplWattage = applianceWattorHP.getText().toString() + " Watts";
+        aplDuration = numberOfHrsPerDay.getText().toString() + " Hrs/Day";
+
+        mAppliances.add(new Appliances(aplName, aplWattage, aplDuration));
         mAdapter.notifyItemInserted(position);
+
+        Toast.makeText(this, aplName + " " + aplWattage + " " + aplDuration, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -105,16 +116,17 @@ public class MainActivity extends AppCompatActivity {
     private void getViews() {
         //Initialize Views
         //EditText
-        avgSunlightPerDay = findViewById(R.id.edt_avg_sunlight);
-        applianceName = findViewById(R.id.edit_text_appliance_name);
-        applianceWattorHP = findViewById(R.id.edit_text_watts_or_hp);
-        applianceVolt = findViewById(R.id.edit_text_voltage);
-        applianceAmps = findViewById(R.id.edit_text_amps);
-        numberOfHrsPerDay = findViewById(R.id.edt_duration_of_device);
+        avgSunlightPerDay = findViewById(R.id.avg_sun);
+        applianceName = findViewById(R.id.appliance_name);
+        applianceWattorHP = findViewById(R.id.watts_or_hp);
+        applianceVolt = findViewById(R.id.voltage);
+        applianceAmps = findViewById(R.id.amps);
+        numberOfHrsPerDay = findViewById(R.id.duration_of_device);
         //Buttons
         addAppliance = findViewById(R.id.add_an_appliance_btn);
         reset = findViewById(R.id.reset_btn);
         calculate = findViewById(R.id.calculate_btn);
+
     }
 
     //All about spinner
@@ -131,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                 if (rate.equals("Watt") || rate.equals("Horse Power")) {
                     applianceWattorHP.setVisibility(View.VISIBLE);
                 } else if (rate.equals("Volts(V) & Amps(A)")) {
+                    applianceWattorHP.setVisibility(View.INVISIBLE);
                     applianceVolt.setVisibility(View.VISIBLE);
                     applianceAmps.setVisibility(View.VISIBLE);
                 }
