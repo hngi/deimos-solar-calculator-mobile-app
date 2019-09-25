@@ -10,6 +10,9 @@
     <string name="hrs_day">Hrs/Day</string>
     <string name="calculate_the_total_power_needed">Calculate the Total Power needed</string>
     <string name="duration_of_use">Duration of Use</string>
+    <string name="amps_a">Amps (A)</string>
+    <string name="volts_v">Volts (V)</string>
+    <string name="enter_device_rating_in_watts_or_hp_here">Enter Device Rating in Watts or HP here</string>
 
 
     <string-array name="rating_type">

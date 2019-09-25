@@ -11,15 +11,6 @@
         android:id="@+id/parent_const_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-  
-   <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
         <LinearLayout
@@ -48,6 +39,7 @@
                 android:hint="@string/_0"
                 android:importantForAutofill="no"
                 android:inputType="number"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -90,12 +82,79 @@
 
         </LinearLayout>
 
+        <EditText
+            android:id="@+id/edit_text_watts_or_hp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/device_layout"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_field_decoration"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="@string/enter_device_rating_in_watts_or_hp_here"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:visibility="invisible" />
+
+
+        <LinearLayout
+            android:id="@+id/volt_and_amps_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/device_layout"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <EditText
+                android:id="@+id/edit_text_voltage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/input_field_decoration"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/volts_v"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_text_amps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/input_field_decoration"
+                android:ems="10"
+                android:gravity="end"
+                android:hint="@string/amps_a"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/duration_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/device_layout"
+            android:layout_below="@id/add_an_appliance_btn"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
@@ -126,18 +185,27 @@
         </LinearLayout>
 
 
+        <include
+            android:id="@+id/recycler_include"
+            layout="@layout/appliances_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/duration_layout"
+            android:layout_marginTop="20dp" />
+
+
         <Button
             android:id="@+id/add_an_appliance_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/duration_layout"
+            android:layout_below="@id/volt_and_amps_layout"
+            android:layout_marginTop="50dp"
             android:backgroundTint="@android:color/black"
             android:drawableStart="@drawable/ic_add"
             android:paddingStart="40dp"
             android:paddingTop="10dp"
             android:paddingEnd="20dp"
             android:paddingBottom="10dp"
-            android:layout_marginTop="50dp"
             android:text="@string/add_an_appliance"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
@@ -147,11 +215,14 @@
             android:id="@+id/reset_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/add_an_appliance_btn"
-            android:layout_marginStart="150dp"
+            android:layout_below="@id/recycler_include"
+            android:layout_marginStart="130dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="150dp"
+            android:layout_marginEnd="130dp"
             android:background="@drawable/reset_btn_decoration"
+            android:drawableEnd="@drawable/ic_refresh"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:text="@string/reset"
             android:textSize="20sp" />
 
@@ -162,7 +233,7 @@
             android:layout_below="@id/reset_btn"
             android:layout_marginStart="50dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="0dp"
             android:background="@drawable/calc_btn_decor"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
