@@ -13,6 +13,7 @@
     <string name="amps_a">Amps (A)</string>
     <string name="volts_v">Volts (V)</string>
     <string name="enter_device_rating_in_watts_or_hp_here">Enter Device Rating in Watts or HP here</string>
+    <string name="icon_for_delete_desc">Icon for Delete</string>
 
 
     <string-array name="rating_type">

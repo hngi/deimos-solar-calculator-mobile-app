@@ -1,52 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:backgroundTint="@android:color/black"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="5dp"
+    app:contentPadding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
 
-    <TextView
-        android:id="@+id/appliance_name_txt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        tools:text="Appliance Name" />
+        <TextView
+            android:id="@+id/appliance_name_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:ellipsize="end"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="10dp"
+            android:textColor="#ffd500"
+            android:textSize="20sp"
+            tools:text="Radio" />
 
-    <TextView
-        android:id="@+id/wattage_value_txt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        tools:text="Wattage" />
+        <TextView
+            android:id="@+id/wattage_value_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="#ffd500"
+            android:textSize="20sp"
+            tools:text="100" />
 
-    <TextView
-        android:id="@+id/duration_value_txt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        tools:text="Duration" />
+        <TextView
+            android:id="@+id/duration_value_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="viewEnd"
+            android:textColor="#ffd500"
+            android:textSize="20sp"
+            tools:text="8" />
 
-    <ImageView
-        android:id="@+id/delete_appliance_img_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:paddingTop="10dp"
-        android:scaleType="center"
-        android:src="@drawable/ic_delete_black_24dp" />
+        <ImageView
+            android:id="@+id/delete_appliance_img_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:contentDescription="@string/icon_for_delete_desc"
+            android:paddingTop="10dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_delete_black_24dp" />
 
 
-</LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
