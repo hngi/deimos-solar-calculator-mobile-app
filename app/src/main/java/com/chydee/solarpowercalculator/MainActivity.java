@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     //RecyclerView
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +47,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //Initialize Views
-        //EditText
-        avgSunlightPerDay = findViewById(R.id.edt_avg_sunlight);
-        applianceName = findViewById(R.id.edit_text_appliance_name);
-        applianceWattorHP = findViewById(R.id.edit_text_watts_or_hp);
-        applianceVolt = findViewById(R.id.edit_text_voltage);
-        applianceAmps = findViewById(R.id.edit_text_amps);
-        //Buttons
-        addAppliance = findViewById(R.id.add_an_appliance_btn);
-        reset = findViewById(R.id.reset_btn);
-        calculate = findViewById(R.id.calculate_btn);
+        getViews();
+        ratingSelected();
 
-        //Spinner
-        ratingSpinner = findViewById(R.id.type_spinner);
 
         //Add Logic to Add An Appliance Button
         addAppliance.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +83,24 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_CONST, MODE_PRIVATE);
         //Under Construction
     }
+
+
+    private void getViews(){
+        //Initialize Views
+        //EditText
+        avgSunlightPerDay = findViewById(R.id.edt_avg_sunlight);
+        applianceName = findViewById(R.id.edit_text_appliance_name);
+        applianceWattorHP = findViewById(R.id.edit_text_watts_or_hp);
+        applianceVolt = findViewById(R.id.edit_text_voltage);
+        applianceAmps = findViewById(R.id.edit_text_amps);
+        //Buttons
+        addAppliance = findViewById(R.id.add_an_appliance_btn);
+        reset = findViewById(R.id.reset_btn);
+        calculate = findViewById(R.id.calculate_btn);
+        //Spinner
+        ratingSpinner = findViewById(R.id.type_spinner);
+    }
+
 
 
 }
