@@ -1,8 +1,6 @@
 package com.chydee.solarpowercalculator;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,10 +55,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                LayoutInflater layoutInflater =(LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                final View rowView = layoutInflater.inflate(R.layout.fields, null);
-                // Add the new row before the add field button.
-                parentConstraintLayout.addView(rowView, parentConstraintLayout.getChildCount() - 1);
 
             }
         });
