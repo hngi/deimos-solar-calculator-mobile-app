@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     String aplName;
     String aplWattage;
     String aplDuration;
+    String aplConvertedWattage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
         mAppliances = new ArrayList<>();
         buildRecyclerView();
-        //Add Logic to Add An Appliance Button
-        addAppliance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = 0;
-                insertAppliance(position);
-            }
-        });
+
     }
+
 
     private void buildRecyclerView() {
         //recycler view
@@ -99,14 +94,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void insertApplianceWhenInVoltandAmps(int position) {
 
-    public void insertAppliance(int position) {
+        double voltage = Double.parseDouble(applianceVolt.getText().toString());
+        double ampere = Double.parseDouble(applianceAmps.getText().toString());
+
+        double conversion = voltage * ampere;
+        int watts = (int) conversion;
+
+        aplName = applianceName.getText().toString();
+        aplConvertedWattage = watts + " Watts";
+        aplDuration = numberOfHrsPerDay.getText().toString() + " Hrs/Day";
+
+        mAppliances.add(new Appliances(aplName, aplConvertedWattage, aplDuration));
+        mAdapter.notifyItemInserted(position);
+    }
+
+
+    private void insertApplianceWhenInWatt(int position) {
+
         aplName = applianceName.getText().toString();
         aplWattage = applianceWattorHP.getText().toString() + " Watts";
         aplDuration = numberOfHrsPerDay.getText().toString() + " Hrs/Day";
 
         mAppliances.add(new Appliances(aplName, aplWattage, aplDuration));
         mAdapter.notifyItemInserted(position);
+
     }
 
 
@@ -147,11 +160,34 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String rate = parent.getItemAtPosition(position).toString();
                 if (rate.equals("Watt") || rate.equals("Horse Power")) {
+                    applianceVolt.setVisibility(View.INVISIBLE);
+                    applianceAmps.setVisibility(View.INVISIBLE);
                     applianceWattorHP.setVisibility(View.VISIBLE);
+                    //Add Logic to Add An Appliance Button
+                    addAppliance.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int pos = 0;
+                            insertApplianceWhenInWatt(pos);
+                        }
+                    });
+
                 } else if (rate.equals("Volts(V) & Amps(A)")) {
                     applianceWattorHP.setVisibility(View.INVISIBLE);
                     applianceVolt.setVisibility(View.VISIBLE);
                     applianceAmps.setVisibility(View.VISIBLE);
+                    //Add Logic to Add An Appliance Button
+                    addAppliance.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int pos = 0;
+                            insertApplianceWhenInVoltandAmps(pos);
+                            applianceVolt.setText("");
+                            applianceAmps.setText("");
+                            applianceWattorHP.setText("");
+                        }
+                    });
+
                 }
 
             }
