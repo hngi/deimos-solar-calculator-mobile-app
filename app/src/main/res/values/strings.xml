@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Solar Power Calculator</string>
     <string name="avg_sunlight_day">Avg. Sunlight/Day</string>
-    <string name="_0">0</string>
+    <string name="btn4">0</string>
     <string name="input_appliance_name">Input Appliance Name</string>
     <string name="quantity">Quantity</string>
     <string name="watts">Watts</string>
@@ -13,6 +13,12 @@
     <string name="amps_a">Amps (A)</string>
     <string name="volts_v">Volts (V)</string>
     <string name="enter_device_rating_in_watts_or_hp_here">Enter Device Rating in Watts or HP here</string>
+    <string name="effloss">Watt Required Assuming Inherent Efficient Loss</string>
+    <string name="watthrsperday">Total Watt Hours Per Day</string>
+    <string name="btn3">0</string>
+    <string name="btn5">0</string>
+    <string name="btn6">0</string>
+    <string name="btn7">0</string>
 
 
     <string-array name="rating_type">
