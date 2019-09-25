@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        getSupportActionBar().setIcon(R.drawable.sunshine_app);
+
         getViews();
         spinnerLogic();
 

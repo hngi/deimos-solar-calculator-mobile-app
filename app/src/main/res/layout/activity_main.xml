@@ -8,6 +8,7 @@
     android:scrollbars="none"
     tools:context=".MainActivity">
 
+
     <RelativeLayout
         android:id="@+id/parent_const_layout"
         android:layout_width="match_parent"
