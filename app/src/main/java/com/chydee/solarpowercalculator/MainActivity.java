@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         aplConvertedWattage = watts + " Watts";
         aplDuration = numberOfHrsPerDay.getText().toString() + " Hrs/Day";
 
-        mAppliances.add(new Appliances(aplName, aplConvertedWattage, aplDuration));
+        mAppliances.add(position, new Appliances(aplName, aplConvertedWattage, aplDuration));
         mAdapter.notifyItemInserted(position);
     }
 
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         aplWattage = applianceWattorHP.getText().toString() + " Watts";
         aplDuration = numberOfHrsPerDay.getText().toString() + " Hrs/Day";
 
-        mAppliances.add(new Appliances(aplName, aplWattage, aplDuration));
+        mAppliances.add(position, new Appliances(aplName, aplWattage, aplDuration));
         mAdapter.notifyItemInserted(position);
 
     }
@@ -161,7 +161,11 @@ public class MainActivity extends AppCompatActivity {
         ratingSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
                 String rate = parent.getItemAtPosition(position).toString();
+
+
                 if (rate.equals("Watt") || rate.equals("Horse Power")) {
                     applianceVolt.setVisibility(View.INVISIBLE);
                     applianceAmps.setVisibility(View.INVISIBLE);
@@ -172,10 +176,14 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             int pos = 0;
                             insertApplianceWhenInWatt(pos);
+                            clearField();
                         }
                     });
 
-                } else if (rate.equals("Volts(V) & Amps(A)")) {
+                    return;
+                }
+
+                if (rate.equals("Volts(V) & Amps(A)")) {
                     applianceWattorHP.setVisibility(View.INVISIBLE);
                     applianceVolt.setVisibility(View.VISIBLE);
                     applianceAmps.setVisibility(View.VISIBLE);
@@ -185,12 +193,10 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             int pos = 0;
                             insertApplianceWhenInVoltandAmps(pos);
-                            applianceVolt.setText("");
-                            applianceAmps.setText("");
-                            applianceWattorHP.setText("");
+                            clearField();
                         }
                     });
-
+                    return;
                 }
 
             }
@@ -200,6 +206,14 @@ public class MainActivity extends AppCompatActivity {
                 //Do nothing
             }
         });
+    }
+
+    private void clearField() {
+        applianceVolt.setText("");
+        applianceAmps.setText("");
+        applianceWattorHP.setText("");
+        applianceName.setText("");
+        numberOfHrsPerDay.setText("");
     }
 
 }
