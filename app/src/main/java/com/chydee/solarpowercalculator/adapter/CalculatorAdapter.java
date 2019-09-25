@@ -18,17 +18,26 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Ca
 
     //Generals
     private ArrayList<Appliances> mAppliances;
+    private OnItemClickListener mListener;
 
-    public CalculatorAdapter(ArrayList<Appliances> appliances){
-        mAppliances = appliances;
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
     }
 
     @NonNull
     @Override
     public CalculatorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.appliance_layout, parent, false);
-        CalculatorViewHolder calculatorViewHolder = new CalculatorViewHolder(view);
+        CalculatorViewHolder calculatorViewHolder = new CalculatorViewHolder(view, mListener);
         return calculatorViewHolder;
+    }
+
+    public CalculatorAdapter(ArrayList<Appliances> appliances){
+        mAppliances = appliances;
+    }
+
+    public interface OnItemClickListener{
+        void onDeleteClick(int position);
     }
 
     @Override
@@ -53,12 +62,24 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Ca
         public TextView duration;
         public ImageView remove;
 
-        public CalculatorViewHolder(@NonNull View itemView) {
+        public CalculatorViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             name = itemView.findViewById(R.id.appliance_name_txt);
             wattage = itemView.findViewById(R.id.wattage_value_txt);
             duration = itemView.findViewById(R.id.duration_value_txt);
             remove = itemView.findViewById(R.id.delete_appliance_img_btn);
+
+            remove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onDeleteClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

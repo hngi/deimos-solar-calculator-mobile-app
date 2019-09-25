@@ -3,14 +3,12 @@ package com.chydee.solarpowercalculator;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText applianceWattorHP;
     //RecyclerView
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private CalculatorAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     private ArrayList<Appliances> mAppliances;
@@ -69,6 +67,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         mAppliances = new ArrayList<>();
+        buildRecyclerView();
+        //Add Logic to Add An Appliance Button
+        addAppliance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = 0;
+                insertAppliance(position);
+            }
+        });
+    }
+
+    private void buildRecyclerView() {
         //recycler view
         mRecyclerView = findViewById(R.id.appliance_recycler);
         mRecyclerView.setHasFixedSize(true); //Increases the app's performance since the size of the items layout won't increase
@@ -78,17 +88,15 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-
-        //Add Logic to Add An Appliance Button
-        addAppliance.setOnClickListener(new View.OnClickListener() {
+        mAdapter.setOnItemClickListener(new CalculatorAdapter.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                int position = 0;
-                insertAppliance(position);
-
-
+            public void onDeleteClick(int position) {
+                mAppliances.remove(position);
+                mAdapter.notifyItemRemoved(position);
             }
         });
+
+
     }
 
 
@@ -99,8 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
         mAppliances.add(new Appliances(aplName, aplWattage, aplDuration));
         mAdapter.notifyItemInserted(position);
-
-        Toast.makeText(this, aplName + " " + aplWattage + " " + aplDuration, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -152,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Log.e("MAINACTIVITYERROR", "Nothing has been selected");
+                //Do nothing
             }
         });
     }
