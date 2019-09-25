@@ -195,11 +195,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/recycler_include"
-            android:layout_marginStart="150dp"
+            android:layout_marginStart="130dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="150dp"
+            android:layout_marginEnd="130dp"
             android:background="@drawable/reset_btn_decoration"
             android:text="@string/reset"
+            android:drawableEnd="@drawable/ic_refresh"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:textSize="20sp" />
 
         <Button
