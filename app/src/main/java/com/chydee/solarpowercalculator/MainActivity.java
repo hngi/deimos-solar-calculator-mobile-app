@@ -1,5 +1,6 @@
 package com.chydee.solarpowercalculator;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //get views
+    @SuppressLint("CutPasteId")
     private void getViews() {
         //Initialize Views
         //EditText
