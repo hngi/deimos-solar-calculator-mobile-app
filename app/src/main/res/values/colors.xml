@@ -8,7 +8,10 @@
     <color name="lightgreen">#009688</color>
     <color name="yellow">#ffd500</color>
     <color name="gold">#FFD700</color>
-
+    <color name="cyan">#9DEEF1</color>
+    <color name="blue">#7F83F1</color>
     <color name="black">#000</color>
+    <color name="lightergreen">#7CF3CF</color>
+    <color name="lightest">#CEEFE5</color>
 
 </resources>

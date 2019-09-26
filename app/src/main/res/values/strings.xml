@@ -28,6 +28,11 @@
     <string name="total_watt_hours_per_day">Total Watt Hours per Day</string>
     <string name="solar_calculator">Solar Calculator</string>
     <string name="btn">0</string>
+    <string name="rrr">Recommended number of Solar Panels</string>
+    <string name="rsp">Required Solar Power</string>
+    <string name="aspm">Average Sunlight Per Month</string>
+    <string name="twhpd">Total Watt Hours Per Day</string>
+    <string name="khpm">Kilowatt Hours Per Month</string>
 
 
     <string-array name="rating_type">
