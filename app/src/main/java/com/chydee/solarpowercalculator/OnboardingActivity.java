@@ -17,12 +17,12 @@ public class OnboardingActivity extends AppIntro {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_onboarding);
 
-        addSlide(AppIntroFragment.newInstance("Calculate","Lorem ipsum dolo sit amet",
-                R.drawable.figma, ContextCompat.getColor(getApplicationContext(),R.color.colorPrimary)));
-        addSlide(AppIntroFragment.newInstance("Know Your Wattage","Lorem ipsum dolo sit amet",
-                R.drawable.figma, ContextCompat.getColor(getApplicationContext(),R.color.lightgreen)));
-        addSlide(AppIntroFragment.newInstance("Calculate Solar","Lorem ipsum dolo sit amet",
-                R.drawable.figma, ContextCompat.getColor(getApplicationContext(),R.color.colorPrimaryDark)));
+        addSlide(AppIntroFragment.newInstance("Welcome","Let us help you find out how much solar power is needed to run your house.",
+                R.drawable.house, ContextCompat.getColor(getApplicationContext(),R.color.bg)));
+        addSlide(AppIntroFragment.newInstance("Calculate it yourself","No third party is needed, you can calculate this yourself.",
+                R.drawable.calculator, ContextCompat.getColor(getApplicationContext(),R.color.teal)));
+        addSlide(AppIntroFragment.newInstance("Get result","Get the result of your calculation displayed to you quickly and efficiently.",
+                R.drawable.result, ContextCompat.getColor(getApplicationContext(),R.color.brown)));
 
 
     }
