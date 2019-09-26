@@ -27,45 +27,42 @@
             app:layout_constraintStart_toStartOf="@+id/req_panel"
             app:layout_constraintTop_toBottomOf="@+id/req_panel" />
 
-        <EditText
+        <TextView
             android:id="@+id/total_watt_hr_day"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:layout_marginTop="52dp"
             android:background="@drawable/input_field"
             android:ems="10"
-            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <TextView
             android:id="@+id/kilo_watt_per_month"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:layout_marginTop="52dp"
             android:background="@drawable/input_field"
             android:ems="10"
-            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="@+id/total_watt_hr_day"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/total_watt_hr_day"
             app:layout_constraintTop_toBottomOf="@+id/total_watt_hr_day" />
 
-        <EditText
+        <TextView
             android:id="@+id/avg_sunlight_per_month"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:layout_marginTop="52dp"
             android:background="@drawable/input_field"
             android:ems="10"
-            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="@+id/kilo_watt_per_month"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/kilo_watt_per_month"
             app:layout_constraintTop_toBottomOf="@+id/kilo_watt_per_month" />
 
-        <EditText
+        <TextView
             android:id="@+id/req_panel"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
@@ -78,7 +75,7 @@
             app:layout_constraintStart_toStartOf="@+id/rec_num_solar_panel"
             app:layout_constraintTop_toBottomOf="@+id/rec_num_solar_panel" />
 
-        <EditText
+        <TextView
             android:id="@+id/rec_num_solar_panel"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
@@ -95,7 +92,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="casual"
             android:text="@string/khpm"
             android:textSize="18sp"
@@ -103,7 +100,7 @@
             android:typeface="sans"
             app:layout_constraintBottom_toTopOf="@+id/kilo_watt_per_month"
             app:layout_constraintEnd_toEndOf="@+id/kilo_watt_per_month"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="@+id/kilo_watt_per_month" />
 
         <TextView
@@ -118,7 +115,7 @@
             android:typeface="sans"
             app:layout_constraintBottom_toTopOf="@+id/total_watt_hr_day"
             app:layout_constraintEnd_toEndOf="@+id/total_watt_hr_day"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="@+id/total_watt_hr_day" />
 
         <TextView

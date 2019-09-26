@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextClock;
+import android.widget.TextView;
 
 public class Results extends AppCompatActivity {
-    private EditText totalWhourPerDay;
-    private EditText kiloWattHrPerMonth;
-    private EditText avgSunLigthPerMonth;
-    private EditText reqSolarPower;
-    private EditText recNumSolarpnl;
+    private TextView totalWhourPerDay;
+    private TextView kiloWattHrPerMonth;
+    private TextView avgSunLigthPerMonth;
+    private TextView reqSolarPower;
+    private TextView recNumSolarpnl;
     private Button back;
 
     @Override

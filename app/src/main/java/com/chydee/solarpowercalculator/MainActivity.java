@@ -1,6 +1,7 @@
 package com.chydee.solarpowercalculator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -51,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Appliances> mAppliances;
 
-
     //public usable variables
     String aplName;
     String aplWattage;
@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
         mAppliances = new ArrayList<>();
         buildRecyclerView();
-
     }
 
 
@@ -148,6 +147,14 @@ public class MainActivity extends AppCompatActivity {
         addAppliance = findViewById(R.id.add_an_appliance_btn);
         reset = findViewById(R.id.reset_btn);
         calculate = findViewById(R.id.calculate_btn);
+       // Chydee please delete this code i used it to test the fix of my bug
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent show = new Intent(MainActivity.this,Results.class);
+                startActivity(show);
+            }
+        });
 
     }
 

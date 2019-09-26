@@ -21,6 +21,10 @@
             android:theme="@style/CalculatorTheme">
 
         </activity>
+        <activity android:name=".Results"
+            android:theme="@style/CalculatorTheme">
+
+        </activity>
     </application>
 
 </manifest>
