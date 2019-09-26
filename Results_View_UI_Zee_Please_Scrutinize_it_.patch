@@ -1,0 +1,15 @@
+Index: app/src/main/java/com/chydee/solarpowercalculator/ResultActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/chydee/solarpowercalculator/ResultActivity.java	(date 1569461291000)
++++ app/src/main/java/com/chydee/solarpowercalculator/ResultActivity.java	(date 1569461652202)
+@@ -9,6 +9,6 @@
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_result);
++     //   setContentView(R.layout.activity_result);
+     }
+ }
