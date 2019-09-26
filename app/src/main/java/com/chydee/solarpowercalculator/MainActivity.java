@@ -1,6 +1,5 @@
 package com.chydee.solarpowercalculator;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,18 +25,13 @@ public class MainActivity extends AppCompatActivity {
     //EditTexts
     private EditText avgSunlightPerDay;
     private EditText applianceName;
-    //1hp
-    public static final int ONE_HORSE_POWER = 746; //Electrical horsepower 1 hp(E) = 746 W = 0.746 kW
-
     private EditText numberOfHrsPerDay; //Indicates the number of hours the appliance is in use on a daily basis
     private EditText applianceVolt; // for appliances with volts and amps instead of watts
     private EditText applianceAmps;
-
     //Buttons
     private Button addAppliance;
     private Button reset; // Used for clearing all fields
     private Button calculate; //To do the math
-
     //Spinner
     private Spinner ratingSpinner;
     //SharedPref Constant
@@ -50,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     private ArrayList<Appliances> mAppliances;
+    public static final String APPLIANCE_ID = "1";
+    //1hp
+    public static final int ONE_HORSE_POWER = 746; //Electrical horsepower 1 hp(E) = 746 W = 0.746 kW
+    //TextView
+    private TextView totalWattHrPerDay;
 
 
     //public usable variables
@@ -113,12 +113,11 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyItemInserted(position);
     }
 
-
     private void insertApplianceWhenInWatt(int position) {
 
         aplName = applianceName.getText().toString();
-        aplWattage = applianceWattorHP.getText().toString() + " Watts";
-        aplDuration = numberOfHrsPerDay.getText().toString() + " Hrs/Day";
+        aplWattage = applianceWattorHP.getText().toString();
+        aplDuration = numberOfHrsPerDay.getText().toString();
 
         mAppliances.add(position, new Appliances(aplName, aplWattage, aplDuration));
         mAdapter.notifyItemInserted(position);
@@ -129,9 +128,18 @@ public class MainActivity extends AppCompatActivity {
     //Call this to Save user input for situations where the user closes the app or orientation change
     //Will Actually make the orientation Portrait through out
     private void saveInputs() {
-        Context context;
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_CONST, MODE_PRIVATE);
         //Under Construction
+    }
+
+
+    private void calc() {
+        int wattHr = 0;
+        int wattHour = Integer.parseInt(aplWattage) * Integer.parseInt(aplDuration);
+        wattHr += wattHour;
+        int totalWattHour = 0;
+
+        totalWattHrPerDay.append(String.valueOf(totalWattHour + wattHr));
     }
 
     //get views
@@ -148,6 +156,8 @@ public class MainActivity extends AppCompatActivity {
         addAppliance = findViewById(R.id.add_an_appliance_btn);
         reset = findViewById(R.id.reset_btn);
         calculate = findViewById(R.id.calculate_btn);
+        //TextView
+        totalWattHrPerDay = findViewById(R.id.txt_total_watts_hour);
 
     }
 
@@ -177,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
                             int pos = 0;
                             insertApplianceWhenInWatt(pos);
                             clearField();
+                            calc();
                         }
                     });
 
