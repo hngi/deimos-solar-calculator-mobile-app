@@ -14,6 +14,21 @@
     <string name="volts_v">Volts (V)</string>
     <string name="enter_device_rating_in_watts_or_hp_here">Enter Device Rating in Watts or HP here</string>
     <string name="icon_for_delete_desc">Icon for Delete</string>
+    <string name="btn3">0</string>
+    <string name="btn4">0</string>
+    <string name="btn5">0</string>
+    <string name="btn6">0</string>
+    <string name="btn7">0</string>
+    <string name="kilowatt_hours_per_month_based_on_30_day_period">Kilowatt hours per month based on a 30-day Period</string>
+    <string name="btn2">0</string>
+    <string name="watt_hours_required_assuming_inherent_efficiency_loss">Watt Hours Required Assuming Inherent Efficiency Loss</string>
+    <string name="average_sunlight_per_month_based_on_a_30_day_period">Average Sunlight Per Month based on a 30-day period</string>
+    <string name="required_solar_power">Required Solar Power</string>
+    <string name="recommended_number_of_solar_panels">Recommended Number of solar Panels</string>
+    <string name="total_watt_hours_per_day">Total Watt Hours per Day</string>
+    <string name="solar_calculator">Solar Calculator</string>
+    <string name="btn">0</string>
+    <string name="_total_watt_hours_per_day">Total Watt Hours per Day:</string>
 
 
     <string-array name="rating_type">

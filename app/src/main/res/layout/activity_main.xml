@@ -190,9 +190,38 @@
             android:id="@+id/recycler_include"
             layout="@layout/appliances_recycler"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/add_an_appliance_btn"
             android:layout_marginTop="20dp" />
+
+
+        <LinearLayout
+            android:id="@+id/part_result_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recycler_include"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:text="@string/_total_watt_hours_per_day"
+                android:textColor="@android:color/black"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/txt_total_watts_hour"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:text="4900" />
+
+
+        </LinearLayout>
 
 
         <Button
@@ -212,11 +241,12 @@
             android:textColor="@android:color/white"
             android:textSize="20sp" />
 
+
         <Button
             android:id="@+id/reset_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recycler_include"
+            android:layout_below="@id/part_result_layout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/reset_btn_decoration"
