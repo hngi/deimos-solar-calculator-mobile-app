@@ -14,6 +14,7 @@
         android:layout_marginTop="96dp"
         android:text="@string/tspn"
         android:textSize="20sp"
+        android:background="@drawable/input_field"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
