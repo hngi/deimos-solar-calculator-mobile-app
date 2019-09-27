@@ -110,14 +110,13 @@
                 android:layout_marginTop="20dp" />
 
 
-
             <Button
                 android:id="@+id/add_an_appliance_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/duration_layout"
                 android:layout_marginTop="32dp"
-                android:backgroundTint="@android:color/black"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:drawableStart="@drawable/ic_add"
                 android:paddingStart="40dp"
                 android:paddingTop="10dp"

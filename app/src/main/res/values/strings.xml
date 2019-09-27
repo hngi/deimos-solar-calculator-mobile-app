@@ -29,6 +29,7 @@
     <string name="solar_calculator">Solar Calculator</string>
     <string name="btn">0</string>
     <string name="_total_watt_hours_per_day">Total Watt Hours per Day:</string>
+    <string name="tspn">Total Solar Power Needed</string>
 
 
     <string-array name="rating_type">
