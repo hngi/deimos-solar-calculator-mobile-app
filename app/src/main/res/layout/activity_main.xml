@@ -125,6 +125,7 @@
                 android:text="@string/add_an_appliance"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
+                android:background="@drawable/input_field"
                 android:textSize="20sp" />
 
 
