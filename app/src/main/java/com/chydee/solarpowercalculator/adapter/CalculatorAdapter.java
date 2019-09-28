@@ -46,7 +46,7 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Ca
 
         holder.name.setText(currentAppliance.getApplianceName());
         holder.wattage.setText(currentAppliance.getApplianceWattage() + " Watt");
-        holder.duration.setText(currentAppliance.getApplianceDurationOfUse() + " Hrs/Day");
+        holder.duration.setText(currentAppliance.getApplianceDurationOfUse() + " Hrs");
     }
 
     @Override
