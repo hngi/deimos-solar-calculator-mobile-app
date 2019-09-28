@@ -26,10 +26,7 @@ public class ResultActivity extends AppCompatActivity {
             tvTotalWatts.setText(String.valueOf((double) totalWattHour /1000));
 
         }
-        float rs = Float.parseFloat(tvTotalWatts.getText().toString());
-        if(rs < 0){
-            Toast.makeText(this, "Low kilowatt", Toast.LENGTH_LONG).show();
-        }
+   
     }
 
     @Override
