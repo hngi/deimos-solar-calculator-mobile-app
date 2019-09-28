@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chydee.solarpowercalculator.R;
 import com.chydee.solarpowercalculator.model.Appliances;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.CalculatorViewHolder> {
@@ -46,7 +47,9 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Ca
 
         holder.name.setText(currentAppliance.getApplianceName());
         holder.wattage.setText(currentAppliance.getApplianceWattage() + " Watt");
-        holder.duration.setText(currentAppliance.getApplianceDurationOfUse() + " Hrs");
+        holder.quantity.setText(currentAppliance.getApplianceQuantity()+ "Pieces");
+        holder.duration.setText(currentAppliance.getApplianceDurationOfUse() + "Hrs");
+
     }
 
     @Override
@@ -60,13 +63,16 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Ca
         public TextView name;
         public TextView wattage;
         public TextView duration;
+        public TextView quantity;
         public ImageView remove;
+        //public TextView quantity;
 
         public CalculatorViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             name = itemView.findViewById(R.id.appliance_name_txt);
             wattage = itemView.findViewById(R.id.wattage_value_txt);
             duration = itemView.findViewById(R.id.duration_value_txt);
+            quantity = itemView.findViewById(R.id.quantity_value_txt);
             remove = itemView.findViewById(R.id.delete_appliance_img_btn);
 
             remove.setOnClickListener(new View.OnClickListener() {

@@ -5,11 +5,12 @@ public class Appliances {
     private String mApplianceName;
     private String mApplianceWattage;
     private String mApplianceDurationOfUse;
-
-    public Appliances(String applianceName, String applianceWattage, String  applianceDurationOfUse) {
+    private String mApplianceQuantity;
+    public Appliances(String applianceName, String applianceWattage, String applianceDurationOfUse, String applianceQuantity) {
         mApplianceName = applianceName;
         mApplianceWattage = applianceWattage;
         mApplianceDurationOfUse = applianceDurationOfUse;
+        mApplianceQuantity = applianceQuantity;
     }
 
     //Set Getters
@@ -24,5 +25,8 @@ public class Appliances {
 
     public String getApplianceDurationOfUse() {
         return mApplianceDurationOfUse;
+    }
+    public String getApplianceQuantity() {
+        return mApplianceQuantity;
     }
 }
