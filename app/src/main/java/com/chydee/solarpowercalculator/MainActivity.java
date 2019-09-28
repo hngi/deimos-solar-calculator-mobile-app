@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     //EditTexts
     private EditText applianceName;
     private EditText numberOfHrsPerDay; //Indicates the number of hours the appliance is in use on a daily basis
+    //just added
+    private EditText appliance_quantity;
     //Buttons
     private Button addAppliance;
     private Button calculate; //To do the math
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     String aplName;
     String aplWattage;
     String aplDuration;
+    //just aded
+    String aplQuantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,10 +115,12 @@ public class MainActivity extends AppCompatActivity {
         aplName = applianceName.getText().toString();
         aplWattage = applianceWattorHP.getText().toString();
         aplDuration = numberOfHrsPerDay.getText().toString();
-        if (aplName.isEmpty() || aplWattage.isEmpty() || aplDuration.isEmpty()) {
+        //just added
+        aplQuantity = appliance_quantity.getText().toString();
+        if (aplName.isEmpty() || aplWattage.isEmpty() || aplDuration.isEmpty() || aplQuantity.isEmpty()) {
             return;
         }
-        mAppliances.add(position, new Appliances(aplName, aplWattage, aplDuration));
+        mAppliances.add(position, new Appliances(aplName, aplWattage, aplDuration, aplQuantity));
         mAdapter.notifyDataSetChanged();
 
     }
@@ -122,14 +128,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void calc() {
-        if (aplWattage.isEmpty() || aplDuration.isEmpty()) {
+        if (aplWattage.isEmpty() || aplDuration.isEmpty() || aplQuantity.isEmpty()) {
             return;
         }
 
         int totalWattHour = 0;
 
         for (Appliances appliance: mAppliances) {
-            totalWattHour = totalWattHour + (Integer.parseInt(appliance.getApplianceWattage()) * Integer.parseInt(appliance.getApplianceDurationOfUse()));
+            totalWattHour = totalWattHour + (Integer.parseInt(appliance.getApplianceWattage()) * Integer.parseInt(appliance.getApplianceDurationOfUse())) * Integer.parseInt(appliance.getApplianceQuantity());
         }
 
 
@@ -146,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
         applianceName = findViewById(R.id.appliance_name);
         applianceWattorHP = findViewById(R.id.watts_or_hp);
         numberOfHrsPerDay = findViewById(R.id.duration_of_device);
+        //just added
+        appliance_quantity = findViewById(R.id.quantity_of_devices);
+
         addAppliance = findViewById(R.id.add_an_appliance_btn);
         calculate = findViewById(R.id.calculate_btn);
 
@@ -157,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
         applianceWattorHP.setText("");
         applianceName.setText("");
         numberOfHrsPerDay.setText("");
+        appliance_quantity.setText("");
     }
 
 }

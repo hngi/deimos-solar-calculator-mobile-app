@@ -14,6 +14,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        TextView tvTotalWatts = findViewById(R.id.tvTotalPower);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Calculation Result");
@@ -21,9 +22,11 @@ public class ResultActivity extends AppCompatActivity {
         }
         if (getIntent() != null){
             int totalWattHour = getIntent().getIntExtra("totalWattHour", 0);
-            TextView tvTotalWatts = findViewById(R.id.tvTotalPower);
+
             tvTotalWatts.setText(String.valueOf((double) totalWattHour /1000));
+
         }
+   
     }
 
     @Override
