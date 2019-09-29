@@ -41,7 +41,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="64dp"
         android:gravity="center"
-        android:text="This is the amount of power your Solar Panel is required to generate so you can cover the appliances listed, for the duration you specified."
+        android:text="This is the amount of power your Solar Panel is required to generate so you can cover the appliances, for the duration you specified."
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

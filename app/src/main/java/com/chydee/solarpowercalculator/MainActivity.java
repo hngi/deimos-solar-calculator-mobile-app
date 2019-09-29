@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int pos = 0;
                 insertApplianceWhenInWatt(pos);
-                clearField();
             }
         });
         calculate.setOnClickListener(new View.OnClickListener() {
@@ -118,19 +117,18 @@ public class MainActivity extends AppCompatActivity {
         //just added
         aplQuantity = appliance_quantity.getText().toString();
         if (aplName.isEmpty() || aplWattage.isEmpty() || aplDuration.isEmpty() || aplQuantity.isEmpty()) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
             return;
         }
         mAppliances.add(position, new Appliances(aplName, aplWattage, aplDuration, aplQuantity));
         mAdapter.notifyDataSetChanged();
+        clearField();
 
     }
 
 
 
     private void calc() {
-        if (aplWattage.isEmpty() || aplDuration.isEmpty() || aplQuantity.isEmpty()) {
-            return;
-        }
 
         int totalWattHour = 0;
 
