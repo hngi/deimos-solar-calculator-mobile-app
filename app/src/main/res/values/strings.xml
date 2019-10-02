@@ -12,7 +12,7 @@
     <string name="duration_of_use">Duration of Use</string>
     <string name="amps_a">Amps (A)</string>
     <string name="volts_v">Volts (V)</string>
-    <string name="enter_device_rating_in_watts_or_hp_here">Enter Device Rating in Watts or HP here</string>
+    <string name="enter_device_rating_in_watts_or_hp_here">Enter Device Rating in Watts</string>
     <string name="icon_for_delete_desc">Icon for Delete</string>
     <string name="btn3">0</string>
     <string name="btn4">0</string>
@@ -28,6 +28,7 @@
     <string name="total_watt_hours_per_day">Total Watt Hours per Day</string>
     <string name="solar_calculator">Solar Calculator</string>
     <string name="btn">0</string>
+    <string name="_total_watt_hours_per_day">Total Watt Hours per Day:</string>
 
 
     <string-array name="rating_type">

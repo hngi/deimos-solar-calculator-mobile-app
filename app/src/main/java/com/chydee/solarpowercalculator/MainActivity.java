@@ -1,6 +1,9 @@
 package com.chydee.solarpowercalculator;
 
+
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,27 +26,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Generals
     //EditTexts
-    private EditText avgSunlightPerDay;
     private EditText applianceName;
-    //1hp
-    public static final int ONE_HORSE_POWER = 746; //Electrical horsepower 1 hp(E) = 746 W = 0.746 kW
-
     private EditText numberOfHrsPerDay; //Indicates the number of hours the appliance is in use on a daily basis
-    private EditText applianceVolt; // for appliances with volts and amps instead of watts
-    private EditText applianceAmps;
-
+    //just aded
+    String aplQuantity;
     //Buttons
     private Button addAppliance;
-    private Button reset; // Used for clearing all fields
     private Button calculate; //To do the math
-
-    //Spinner
-    private Spinner ratingSpinner;
-    //SharedPref Constant
-    public static final String SHARED_CONST = "solar pref";
-    //for appliances with Horse Power (HP) or watts instead of voltage, and/or amps
     //Appliances with power rated in watts
     private EditText applianceWattorHP;
     //RecyclerView
@@ -56,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
     String aplName;
     String aplWattage;
     String aplDuration;
-    String aplConvertedWattage;
+    //just added
+    private EditText appliance_quantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +60,28 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setIcon(R.drawable.sunshine_app);
 
         getViews();
-        spinnerLogic();
 
 
         mAppliances = new ArrayList<>();
         buildRecyclerView();
+
+        addAppliance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = 0;
+                insertApplianceWhenInWatt(pos);
+            }
+        });
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mAdapter.getItemCount() == 0) {
+                    Toast.makeText(MainActivity.this, "You haven't added any appliance yet", Toast.LENGTH_SHORT).show();
+                } else {
+                    calc();
+                }
+            }
+        });
 
     }
 
@@ -97,109 +107,62 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void insertApplianceWhenInVoltandAmps(int position) {
-
-        double voltage = Double.parseDouble(applianceVolt.getText().toString());
-        double ampere = Double.parseDouble(applianceAmps.getText().toString());
-
-        double conversion = voltage * ampere;
-        int watts = (int) conversion;
-
-        aplName = applianceName.getText().toString();
-        aplConvertedWattage = watts + " Watts";
-        aplDuration = numberOfHrsPerDay.getText().toString() + " Hrs/Day";
-
-        mAppliances.add(new Appliances(aplName, aplConvertedWattage, aplDuration));
-        mAdapter.notifyItemInserted(position);
-    }
-
 
     private void insertApplianceWhenInWatt(int position) {
 
-        aplName = applianceName.getText().toString();
-        aplWattage = applianceWattorHP.getText().toString() + " Watts";
-        aplDuration = numberOfHrsPerDay.getText().toString() + " Hrs/Day";
 
-        mAppliances.add(new Appliances(aplName, aplWattage, aplDuration));
-        mAdapter.notifyItemInserted(position);
+        aplName = applianceName.getText().toString();
+        aplWattage = applianceWattorHP.getText().toString();
+        aplDuration = numberOfHrsPerDay.getText().toString();
+        //just added
+        aplQuantity = appliance_quantity.getText().toString();
+        if (aplName.isEmpty() || aplWattage.isEmpty() || aplDuration.isEmpty() || aplQuantity.isEmpty()) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        mAppliances.add(position, new Appliances(aplName, aplWattage, aplDuration, aplQuantity));
+        mAdapter.notifyDataSetChanged();
+        clearField();
 
     }
 
 
-    //Call this to Save user input for situations where the user closes the app or orientation change
-    //Will Actually make the orientation Portrait through out
-    private void saveInputs() {
-        Context context;
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_CONST, MODE_PRIVATE);
-        //Under Construction
+    private void calc() {
+
+        int totalWattHour = 0;
+
+        for (Appliances appliance : mAppliances) {
+            totalWattHour = totalWattHour + (Integer.parseInt(appliance.getApplianceWattage()) * Integer.parseInt(appliance.getApplianceDurationOfUse())) * Integer.parseInt(appliance.getApplianceQuantity());
+        }
+
+
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("totalWattHour", totalWattHour);
+        startActivity(intent);
     }
 
     //get views
+    @SuppressLint("CutPasteId")
     private void getViews() {
         //Initialize Views
         //EditText
-        avgSunlightPerDay = findViewById(R.id.avg_sun);
         applianceName = findViewById(R.id.appliance_name);
         applianceWattorHP = findViewById(R.id.watts_or_hp);
-        applianceVolt = findViewById(R.id.voltage);
-        applianceAmps = findViewById(R.id.amps);
         numberOfHrsPerDay = findViewById(R.id.duration_of_device);
-        //Buttons
+        //just added
+        appliance_quantity = findViewById(R.id.quantity_of_devices);
+
         addAppliance = findViewById(R.id.add_an_appliance_btn);
-        reset = findViewById(R.id.reset_btn);
         calculate = findViewById(R.id.calculate_btn);
 
     }
 
-    //All about spinner
-    private void spinnerLogic() {
-        //spinner
-        ratingSpinner = findViewById(R.id.type_spinner);
-        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.rating_type, android.R.layout.simple_spinner_item);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        ratingSpinner.setAdapter(spinnerAdapter);
-        ratingSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String rate = parent.getItemAtPosition(position).toString();
-                if (rate.equals("Watt") || rate.equals("Horse Power")) {
-                    applianceVolt.setVisibility(View.INVISIBLE);
-                    applianceAmps.setVisibility(View.INVISIBLE);
-                    applianceWattorHP.setVisibility(View.VISIBLE);
-                    //Add Logic to Add An Appliance Button
-                    addAppliance.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            int pos = 0;
-                            insertApplianceWhenInWatt(pos);
-                        }
-                    });
 
-                } else if (rate.equals("Volts(V) & Amps(A)")) {
-                    applianceWattorHP.setVisibility(View.INVISIBLE);
-                    applianceVolt.setVisibility(View.VISIBLE);
-                    applianceAmps.setVisibility(View.VISIBLE);
-                    //Add Logic to Add An Appliance Button
-                    addAppliance.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            int pos = 0;
-                            insertApplianceWhenInVoltandAmps(pos);
-                            applianceVolt.setText("");
-                            applianceAmps.setText("");
-                            applianceWattorHP.setText("");
-                        }
-                    });
-
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //Do nothing
-            }
-        });
+    private void clearField() {
+        applianceWattorHP.setText("");
+        applianceName.setText("");
+        numberOfHrsPerDay.setText("");
+        appliance_quantity.setText("");
     }
 
 }
