@@ -39,4 +39,9 @@
         <item>Horse Power</item>
         <item>Volts(V) &amp; Amps(A)</item>
     </string-array>
+
+
+
+    <string name="using_the_app">How To Use This App</string>
+    <string name="to_get_started">On launching or starting the Solar Power Calculator app, the first screen you will be welcomed with is the Calculator\'s page where the math will be done for you. below is a typical picture of what the screen looks like:</string>
 </resources>

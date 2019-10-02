@@ -40,6 +40,30 @@
                 app:layout_constraintStart_toStartOf="@+id/description_textview"
                 app:layout_constraintTop_toBottomOf="@+id/description_textview" />
 
+            <TextView
+                android:id="@+id/how_to"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/using_the_app"
+                android:textColor="@color/colorPrimary"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/getting_started_description"
+                app:layout_constraintStart_toStartOf="@+id/getting_started_description"
+                app:layout_constraintTop_toBottomOf="@+id/getting_started_description" />
+
+            <TextView
+                android:id="@+id/using_the_app_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/to_get_started"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/description_textview"
+                app:layout_constraintStart_toStartOf="@+id/description_textview"
+                app:layout_constraintTop_toBottomOf="@+id/how_to" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
