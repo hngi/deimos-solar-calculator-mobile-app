@@ -30,6 +30,8 @@
     <string name="btn">0</string>
     <string name="_total_watt_hours_per_day">Total Watt Hours per Day:</string>
     <string name="app_s_guide">App\'s Guide</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="getting_started_desc">The Solar Power Calculator an application that allows you calculate how much solar power you need to run your home. this will help you in your budget planning</string>
 
 
     <string-array name="rating_type">
