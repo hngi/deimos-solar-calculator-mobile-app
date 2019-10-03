@@ -2,17 +2,12 @@ package com.chydee.solarpowercalculator;
 
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.ActionBar;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -126,7 +121,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    private void updateCount(ActionBar.Tab tvCounter) {
+        String count = mAdapter.getItemCount() + " appliances added";
+        tvCounter.setText(count);
+    }
     private void calc() {
 
         int totalWattHour = 0;

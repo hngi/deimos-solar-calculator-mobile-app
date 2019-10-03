@@ -2,17 +2,17 @@
     <string name="app_name">Solar Power Calculator</string>
     <string name="avg_sunlight_day">Avg. Sunlight/Day</string>
     <string name="_0">0</string>
-    <string name="input_appliance_name">Input Appliance Name</string>
+    <string name="input_appliance_name">Appliance Name</string>
     <string name="quantity">Quantity</string>
     <string name="watts">Watts</string>
     <string name="add_an_appliance">Add Appliance</string>
     <string name="reset">Reset</string>
     <string name="hrs_day">Hrs/Day</string>
-    <string name="calculate_the_total_power_needed">Calculate the Total Power needed</string>
+    <string name="calculate_the_total_power_needed">CALCULATE</string>
     <string name="duration_of_use">Duration of Use</string>
     <string name="amps_a">Amps (A)</string>
     <string name="volts_v">Volts (V)</string>
-    <string name="enter_device_rating_in_watts_or_hp_here">Enter Device Rating in Watts</string>
+    <string name="enter_device_rating_in_watts_or_hp_here">Device Rating in Watts</string>
     <string name="icon_for_delete_desc">Icon for Delete</string>
     <string name="btn3">0</string>
     <string name="btn4">0</string>
@@ -29,6 +29,9 @@
     <string name="solar_calculator">Solar Calculator</string>
     <string name="btn">0</string>
     <string name="_total_watt_hours_per_day">Total Watt Hours per Day:</string>
+    <string name="app_s_guide">App\'s Guide</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="getting_started_desc">The Solar Power Calculator an application that allows you calculate how much solar power you need to run your home. this will help you in your budget planning</string>
 
 
     <string-array name="rating_type">
@@ -36,4 +39,21 @@
         <item>Horse Power</item>
         <item>Volts(V) &amp; Amps(A)</item>
     </string-array>
+
+
+    <string name="using_the_app">How To Use This App</string>
+    <string name="to_get_started">On launching or starting the Solar Power Calculator app, the first screen you will be welcomed with is the Calculator\'s page where the math will be done for you. below is a typical picture of what the screen looks like:</string>
+    <string name="step_one_image_desc">Step One Image</string>
+    <string name="step_two_image_desc">Step Two Image</string>
+    <string name="step_three_image_desc">Step Three Image</string>
+    <string name="step_four_image_desc">Step Four Image</string>
+    <string name="step_five_image_desc">Step Five Image</string>
+    <string name="step_one">STEP ONE: Enter the required data carefully by first checking each input field to see what type of data each takes in for example in the screenshot below the user entered data into the fields like this:\n * Appliance Name: Laptop\n * Device Rating (Power):   65\n * Quantity: 1\n * Duration of Use(In Hours): 8</string>
+    <string name="after_entering">After adding the required data to the fields click on the black button with <b>Add Appliance</b> clearly inscribed on it. This will add the appliance in this case <span><b>\"Laptop\"</b></span> to the a list of appliances you use at your home and it will be displayed like in the image below the "Add Appliance Button" for you to keep track of. :) You can add more appliances by repeating STEP ONE!</string>
+    <string name="step_two">Tip: You can delete or remove an appliance you don\'t want on the list by clicking on the \'delete\' icon\n\n
+    STEP TWO: After adding all the appliances you intend to calculate, click on the green colored button located at the bottom of the screen (labeled: \"CALCULATE THE TOTAL POWER NEEDED\") to calculate the total power needed to run your Home.</string>
+    <string name="step_two_contd">On clicking the \"Calculate…\" Button you will be taken to another screen \"The Result Screen\" where the you will get the calculated value of the Solar Power you need to run you home. \n\n Congratulation!!! You have successfully calculated the amount of Solar Power you need to run your home now you can plan your budget</string>
+    <string name="duration_of_use_in_hours">Duration of use in hours</string>
+    <string name="enter_appliance_quantity">Enter Appliance Quantity</string>
+
 </resources>
