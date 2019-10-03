@@ -54,5 +54,7 @@
     <string name="step_two">Tip: You can delete or remove an appliance you don\'t want on the list by clicking on the \'delete\' icon\n\n
     STEP TWO: After adding all the appliances you intend to calculate, click on the green colored button located at the bottom of the screen (labeled: \"CALCULATE THE TOTAL POWER NEEDED\") to calculate the total power needed to run your Home.</string>
     <string name="step_two_contd">On clicking the \"Calculate…\" Button you will be taken to another screen \"The Result Screen\" where the you will get the calculated value of the Solar Power you need to run you home. \n\n Congratulation!!! You have successfully calculated the amount of Solar Power you need to run your home now you can plan your budget</string>
+    <string name="duration_of_use_in_hours">Duration of use in hours</string>
+    <string name="enter_appliance_quantity">Enter Appliance Quantity</string>
 
 </resources>
