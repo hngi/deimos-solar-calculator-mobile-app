@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/container"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:scrollbars="none"
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/calculate_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/calc_btn_decor"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/calculate_the_total_power_needed"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -15,10 +34,10 @@
         android:layout_height="0dp"
         android:padding="20dp"
         android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/calculate_btn"
         app:layout_constraintEnd_toEndOf="@id/container"
         app:layout_constraintStart_toStartOf="@id/container"
-        app:layout_constraintTop_toTopOf="@+id/container"
-        app:layout_constraintBottom_toTopOf="@+id/calculate_btn">
+        app:layout_constraintTop_toTopOf="@+id/container">
 
         <RelativeLayout
             android:id="@+id/parent_const_layout"
@@ -26,42 +45,34 @@
             android:layout_height="wrap_content">
 
 
-
-            <LinearLayout
-                android:id="@+id/device_layout"
+            <Button
+                android:id="@+id/add_an_appliance_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/appliance_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="7"
-                    android:background="@drawable/input_field_decoration"
-                    android:ems="10"
-                    android:gravity="start"
-                    android:hint="@string/input_appliance_name"
-                    android:importantForAutofill="no"
-                    android:inputType="textPersonName"
-                    android:padding="10dp"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-
-
-            </LinearLayout>
+                android:layout_below="@id/duration_layout"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="-2dp"
+                android:backgroundTint="@android:color/black"
+                android:drawableStart="@drawable/ic_add"
+                android:paddingStart="40dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="20dp"
+                android:text="@string/add_an_appliance"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
 
             <EditText
                 android:id="@+id/watts_or_hp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_below="@id/device_layout"
-                android:layout_marginEnd="0dp"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="14dp"
+                android:layout_marginEnd="0dp"
                 android:background="@drawable/input_field_decoration"
                 android:ems="10"
                 android:gravity="start"
@@ -127,6 +138,33 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                android:id="@+id/device_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/appliance_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:background="@drawable/input_field_decoration"
+                    android:ems="10"
+                    android:gravity="start"
+                    android:hint="@string/input_appliance_name"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+
             <include
                 android:id="@+id/recycler_include"
                 layout="@layout/appliances_recycler"
@@ -136,50 +174,10 @@
                 android:layout_marginTop="20dp" />
 
 
-            <Button
-                android:id="@+id/add_an_appliance_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@id/duration_layout"
-                android:layout_marginEnd="-2dp"
-                android:layout_marginTop="23dp"
-                android:backgroundTint="@android:color/black"
-                android:drawableStart="@drawable/ic_add"
-                android:paddingBottom="20dp"
-                android:paddingEnd="20dp"
-                android:paddingStart="40dp"
-                android:paddingTop="20dp"
-                android:text="@string/add_an_appliance"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="20sp" />
-
-
         </RelativeLayout>
 
 
     </ScrollView>
-
-    <Button
-        android:id="@+id/calculate_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/calc_btn_decor"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:text="@string/calculate_the_total_power_needed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
