@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private CalculatorAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    private TextView tvCounter;
+
     private ArrayList<Appliances> mAppliances;
 
 
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDeleteClick(int position) {
                 mAppliances.remove(position);
                 mAdapter.notifyItemRemoved(position);
+                updateCount();
             }
         });
 
@@ -124,8 +127,14 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
         clearField();
 
+        updateCount();
+
     }
 
+    private void updateCount() {
+        String count = mAdapter.getItemCount() + " appliances added";
+        tvCounter.setText(count);
+    }
 
 
     private void calc() {
@@ -156,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
         addAppliance = findViewById(R.id.add_an_appliance_btn);
         calculate = findViewById(R.id.calculate_btn);
 
+        tvCounter = findViewById(R.id.tvCounter);
+
     }
 
 
@@ -166,5 +177,6 @@ public class MainActivity extends AppCompatActivity {
         numberOfHrsPerDay.setText("");
         appliance_quantity.setText("");
     }
+
 
 }
