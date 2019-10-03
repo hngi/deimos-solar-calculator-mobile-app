@@ -13,6 +13,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="20dp"
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="@id/container"
         app:layout_constraintStart_toStartOf="@id/container"
@@ -30,122 +31,155 @@
                 android:id="@+id/device_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/appliance_name"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/input_appliance_name">
+                    android:layout_weight="7"
+                    android:background="@drawable/input_field_decoration"
+                    android:ems="10"
+                    android:gravity="start"
+                    android:hint="@string/input_appliance_name"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/appliance_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/enter_device_rating_in_watts_or_hp_here"
-                    android:layout_marginTop="8dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/watts_or_hp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Duration of use in hours"
-                    android:layout_marginTop="8dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/duration_of_device"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Appliance Quantity"
-                    android:layout_marginTop="8dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/quantity_of_devices"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/add_an_appliance_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:icon="@drawable/ic_add"
-                        android:text="@string/add_an_appliance"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"/>
-
-                    <TextView
-                        android:id="@+id/tvCounter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 appliance(s) added"
-                        style="@style/TextAppearance.AppCompat.Body1"
-                        app:layout_constraintBottom_toBottomOf="@+id/add_an_appliance_btn"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/add_an_appliance_btn" />
-
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/watts_or_hp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/device_layout"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/input_field_decoration"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/enter_device_rating_in_watts_or_hp_here"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/duration_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/watts_or_hp"
+                android:layout_marginTop="80dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/duration_of_device"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/input_field_decoration"
+                    android:ems="10"
+                    android:hint="Duration of use in hours"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/quantity_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/watts_or_hp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/quantity_of_devices"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/input_field_decoration"
+                    android:ems="10"
+                    android:hint="Enter Appliance Quantity"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
 
             <include
                 android:id="@+id/recycler_include"
                 layout="@layout/appliances_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/device_layout"/>
+                android:layout_below="@id/add_an_appliance_btn"
+                android:layout_marginTop="20dp" />
+
+
+            <Button
+                android:id="@+id/add_an_appliance_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/duration_layout"
+                android:layout_marginEnd="-2dp"
+                android:layout_marginTop="23dp"
+                android:backgroundTint="@android:color/black"
+                android:drawableStart="@drawable/ic_add"
+                android:paddingBottom="20dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="40dp"
+                android:paddingTop="20dp"
+                android:text="@string/add_an_appliance"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
 
         </RelativeLayout>
 
 
     </ScrollView>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/calculate_btn"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="0dp"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/calculate_the_total_power_needed"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/calc_btn_decor"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:textColor="@color/white"
-        android:textSize="16sp"
         android:textStyle="bold"
-        android:insetBottom="0dp"
+        android:textSize="16sp"
+        android:text="@string/calculate_the_total_power_needed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:cornerRadius="0dp"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
