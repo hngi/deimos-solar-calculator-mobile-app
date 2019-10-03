@@ -182,7 +182,8 @@ public class MainActivity extends AppCompatActivity {
         addAppliance = findViewById(R.id.add_an_appliance_btn);
         calculate = findViewById(R.id.calculate_btn);
 
-        tvCounter = findViewById(R.id.tvCounter);
+       // tvCounter = findViewById(R.id.tvCounter);
+        //This textView does not exist @Zee Hope you notice this?
 
     }
 
