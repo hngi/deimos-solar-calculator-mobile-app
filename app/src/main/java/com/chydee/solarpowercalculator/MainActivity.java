@@ -2,19 +2,15 @@ package com.chydee.solarpowercalculator;
 
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -76,15 +72,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mAdapter.getItemCount() == 0) {
-                    Toast.makeText(MainActivity.this, "You haven't added any appliance yet", Toast.LENGTH_SHORT).show();
-                } else {
-                    calc();
+                    applianceName.setError("Required");
+                    applianceWattorHP.setError("Required");
+                    numberOfHrsPerDay.setError("Required");
+                    appliance_quantity.setError("Error");
+                    return;
                 }
+                calc();
             }
         });
 
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.app_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_info) {
+            startActivity(new Intent(getApplicationContext(), AppsGuideActivity.class));
+
+        }
+        return true;
+    }
 
     private void buildRecyclerView() {
         //recycler view
@@ -117,7 +131,10 @@ public class MainActivity extends AppCompatActivity {
         //just added
         aplQuantity = appliance_quantity.getText().toString();
         if (aplName.isEmpty() || aplWattage.isEmpty() || aplDuration.isEmpty() || aplQuantity.isEmpty()) {
-            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            applianceName.setError("Required");
+            applianceWattorHP.setError("Required");
+            numberOfHrsPerDay.setError("Required");
+            appliance_quantity.setError("Error");
             return;
         }
         mAppliances.add(position, new Appliances(aplName, aplWattage, aplDuration, aplQuantity));
@@ -127,12 +144,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void calc() {
 
         int totalWattHour = 0;
 
-        for (Appliances appliance: mAppliances) {
+        for (Appliances appliance : mAppliances) {
             totalWattHour = totalWattHour + (Integer.parseInt(appliance.getApplianceWattage()) * Integer.parseInt(appliance.getApplianceDurationOfUse())) * Integer.parseInt(appliance.getApplianceQuantity());
         }
 
@@ -157,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
         calculate = findViewById(R.id.calculate_btn);
 
     }
-
 
 
     private void clearField() {
