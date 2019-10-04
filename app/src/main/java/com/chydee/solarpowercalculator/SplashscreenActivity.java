@@ -13,7 +13,7 @@ import android.widget.ImageView;
 public class SplashscreenActivity extends AppCompatActivity {
     private ImageView logo;
 
-    private static  int splashTimeout = 3000;
+    private static int splashTimeout = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +28,7 @@ public class SplashscreenActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), OnboardingActivity.class);
                     startActivity(intent);
                     finish();
-                } else{
+                } else {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();

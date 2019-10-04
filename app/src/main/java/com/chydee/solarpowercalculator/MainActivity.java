@@ -2,16 +2,14 @@ package com.chydee.solarpowercalculator;
 
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     //EditTexts
     private EditText applianceName;
     private EditText numberOfHrsPerDay; //Indicates the number of hours the appliance is in use on a daily basis
-    //just added
-    private EditText appliance_quantity;
+    //just aded
+    String aplQuantity;
     //Buttons
     private Button addAppliance;
     private Button calculate; //To do the math
@@ -38,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private CalculatorAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private TextView tvCounter;
-
     private ArrayList<Appliances> mAppliances;
 
 
@@ -47,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
     String aplName;
     String aplWattage;
     String aplDuration;
-    //just aded
-    String aplQuantity;
+    //just added
+    private EditText appliance_quantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,33 +71,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mAdapter.getItemCount() == 0) {
-                    applianceName.setError("Required");
-                    applianceWattorHP.setError("Required");
-                    numberOfHrsPerDay.setError("Required");
-                    appliance_quantity.setError("Error");
-                    return;
+                    Toast.makeText(MainActivity.this, "You haven't added any appliance yet", Toast.LENGTH_SHORT).show();
+                } else {
+                    calc();
                 }
-                calc();
             }
         });
 
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.app_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.action_info) {
-            startActivity(new Intent(getApplicationContext(), AppsGuideActivity.class));
-
-        }
-        return true;
-    }
 
     private void buildRecyclerView() {
         //recycler view
@@ -118,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
             public void onDeleteClick(int position) {
                 mAppliances.remove(position);
                 mAdapter.notifyItemRemoved(position);
-                updateCount();
             }
         });
 
@@ -135,25 +112,19 @@ public class MainActivity extends AppCompatActivity {
         //just added
         aplQuantity = appliance_quantity.getText().toString();
         if (aplName.isEmpty() || aplWattage.isEmpty() || aplDuration.isEmpty() || aplQuantity.isEmpty()) {
-            applianceName.setError("Required");
-            applianceWattorHP.setError("Required");
-            numberOfHrsPerDay.setError("Required");
-            appliance_quantity.setError("Error");
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
             return;
         }
         mAppliances.add(position, new Appliances(aplName, aplWattage, aplDuration, aplQuantity));
         mAdapter.notifyDataSetChanged();
         clearField();
 
-        updateCount();
-
     }
 
-    private void updateCount() {
+    private void updateCount(ActionBar.Tab tvCounter) {
         String count = mAdapter.getItemCount() + " appliances added";
         tvCounter.setText(count);
     }
-
     private void calc() {
 
         int totalWattHour = 0;
@@ -182,9 +153,6 @@ public class MainActivity extends AppCompatActivity {
         addAppliance = findViewById(R.id.add_an_appliance_btn);
         calculate = findViewById(R.id.calculate_btn);
 
-       // tvCounter = findViewById(R.id.tvCounter);
-        //This textView does not exist @Zee Hope you notice this?
-
     }
 
 
@@ -194,6 +162,5 @@ public class MainActivity extends AppCompatActivity {
         numberOfHrsPerDay.setText("");
         appliance_quantity.setText("");
     }
-
 
 }

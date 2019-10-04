@@ -6,6 +6,7 @@ public class Appliances {
     private String mApplianceWattage;
     private String mApplianceDurationOfUse;
     private String mApplianceQuantity;
+
     public Appliances(String applianceName, String applianceWattage, String applianceDurationOfUse, String applianceQuantity) {
         mApplianceName = applianceName;
         mApplianceWattage = applianceWattage;
@@ -26,6 +27,7 @@ public class Appliances {
     public String getApplianceDurationOfUse() {
         return mApplianceDurationOfUse;
     }
+
     public String getApplianceQuantity() {
         return mApplianceQuantity;
     }

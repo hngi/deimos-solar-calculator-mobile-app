@@ -16,6 +16,62 @@
             android:padding="8dp">
 
 
+            <ImageView
+                android:id="@+id/img_step_one"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/step_one_image_desc"
+                android:src="@drawable/stage_one"
+                app:layout_constraintEnd_toEndOf="@+id/using_the_app_desc"
+                app:layout_constraintStart_toStartOf="@+id/using_the_app_desc"
+                app:layout_constraintTop_toBottomOf="@+id/using_the_app_desc" />
+
+            <ImageView
+                android:id="@+id/img_step_two"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/step_two_image_desc"
+                android:src="@drawable/stage_two"
+                app:layout_constraintEnd_toEndOf="@+id/step_one_text"
+                app:layout_constraintStart_toStartOf="@+id/step_one_text"
+                app:layout_constraintTop_toBottomOf="@+id/step_one_text" />
+
+            <ImageView
+                android:id="@+id/img_step_three"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/step_three_image_desc"
+                android:src="@drawable/step_three"
+                app:layout_constraintEnd_toEndOf="@+id/step_one_text_contd"
+                app:layout_constraintStart_toStartOf="@+id/step_one_text_contd"
+                app:layout_constraintTop_toBottomOf="@+id/step_one_text_contd" />
+
+            <ImageView
+                android:id="@+id/img_step_four"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/step_four_image_desc"
+                android:src="@drawable/step_four"
+                app:layout_constraintEnd_toEndOf="@+id/step_two_text"
+                app:layout_constraintStart_toStartOf="@+id/step_two_text"
+                app:layout_constraintTop_toBottomOf="@+id/step_two_text" />
+
+
+            <ImageView
+                android:id="@+id/img_step_five"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/step_five_image_desc"
+                android:src="@drawable/step_five"
+                app:layout_constraintEnd_toEndOf="@+id/step_two_text_contd"
+                app:layout_constraintStart_toStartOf="@+id/step_two_text_contd"
+                app:layout_constraintTop_toBottomOf="@+id/step_two_text_contd" />
+
             <TextView
                 android:id="@+id/description_textview"
                 android:layout_width="0dp"
@@ -30,6 +86,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
             <TextView
                 android:id="@+id/getting_started_description"
@@ -66,18 +123,6 @@
                 app:layout_constraintStart_toStartOf="@+id/description_textview"
                 app:layout_constraintTop_toBottomOf="@+id/how_to" />
 
-
-            <ImageView
-                android:id="@+id/img_step_one"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/step_one_image_desc"
-                android:src="@drawable/stage_one"
-                app:layout_constraintEnd_toEndOf="@+id/using_the_app_desc"
-                app:layout_constraintStart_toStartOf="@+id/using_the_app_desc"
-                app:layout_constraintTop_toBottomOf="@+id/using_the_app_desc" />
-
             <TextView
                 android:id="@+id/step_one_text"
                 android:layout_width="0dp"
@@ -88,18 +133,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/img_step_one"
                 app:layout_constraintStart_toStartOf="@+id/img_step_one"
                 app:layout_constraintTop_toBottomOf="@+id/img_step_one" />
-
-
-            <ImageView
-                android:id="@+id/img_step_two"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/step_two_image_desc"
-                android:src="@drawable/stage_two"
-                app:layout_constraintEnd_toEndOf="@+id/step_one_text"
-                app:layout_constraintStart_toStartOf="@+id/step_one_text"
-                app:layout_constraintTop_toBottomOf="@+id/step_one_text" />
 
             <TextView
                 android:id="@+id/step_one_text_contd"
@@ -112,17 +145,6 @@
                 app:layout_constraintStart_toStartOf="@+id/img_step_two"
                 app:layout_constraintTop_toBottomOf="@+id/img_step_two" />
 
-            <ImageView
-                android:id="@+id/img_step_three"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/step_three_image_desc"
-                android:src="@drawable/step_three"
-                app:layout_constraintEnd_toEndOf="@+id/step_one_text_contd"
-                app:layout_constraintStart_toStartOf="@+id/step_one_text_contd"
-                app:layout_constraintTop_toBottomOf="@+id/step_one_text_contd" />
-
             <TextView
                 android:id="@+id/step_two_text"
                 android:layout_width="0dp"
@@ -134,17 +156,6 @@
                 app:layout_constraintStart_toStartOf="@+id/img_step_three"
                 app:layout_constraintTop_toBottomOf="@+id/img_step_three" />
 
-            <ImageView
-                android:id="@+id/img_step_four"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/step_four_image_desc"
-                android:src="@drawable/step_four"
-                app:layout_constraintEnd_toEndOf="@+id/step_two_text"
-                app:layout_constraintStart_toStartOf="@+id/step_two_text"
-                app:layout_constraintTop_toBottomOf="@+id/step_two_text" />
-
             <TextView
                 android:id="@+id/step_two_text_contd"
                 android:layout_width="0dp"
@@ -155,17 +166,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/img_step_four"
                 app:layout_constraintStart_toStartOf="@+id/img_step_four"
                 app:layout_constraintTop_toBottomOf="@+id/img_step_four" />
-
-            <ImageView
-                android:id="@+id/img_step_five"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/step_five_image_desc"
-                android:src="@drawable/step_five"
-                app:layout_constraintEnd_toEndOf="@+id/step_two_text_contd"
-                app:layout_constraintStart_toStartOf="@+id/step_two_text_contd"
-                app:layout_constraintTop_toBottomOf="@+id/step_two_text_contd" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
