@@ -17,15 +17,36 @@ public class ResultActivity extends AppCompatActivity {
 
     RatingBar ratingBar;
     Button button;
+    TextView tvTotalWatts;
+    // view declaration for total panels (1)
+    TextView total_panels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        tvTotalWatts = findViewById(R.id.tvTotalPower);
         ratingBar = findViewById(R.id.ratingBar);
         button = findViewById(R.id.button);
+        // view declaration for total panels (2)
+        total_panels = findViewById(R.id.total_panels);
+
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Calculation Result");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        if (getIntent() != null) {
+            int totalWattHour = getIntent().getIntExtra("totalWattHour", 0);
+
+            tvTotalWatts.setText(String.valueOf((double) totalWattHour / 1000));
+
+        }
+
+
         final float[] myRating;
+
         myRating = new float[]{0};
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -67,20 +88,23 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
-        TextView tvTotalWatts = findViewById(R.id.tvTotalPower);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Calculation Result");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-        if (getIntent() != null) {
-            int totalWattHour = getIntent().getIntExtra("totalWattHour", 0);
-
-            tvTotalWatts.setText(String.valueOf((double) totalWattHour / 1000));
-
-        }
 
     }
+
+
+    //Logic to Display total number of recommended panels
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        float rs = Float.parseFloat(tvTotalWatts.getText().toString());
+        float formula = 1000 / 300;
+
+        total_panels.setText(String.valueOf(Math.round(rs * formula)));
+
+
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
