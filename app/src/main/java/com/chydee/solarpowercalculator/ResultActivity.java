@@ -11,6 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.Arrays;
 
 public class ResultActivity extends AppCompatActivity {
@@ -31,6 +37,17 @@ public class ResultActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         // view declaration for total panels (2)
         total_panels = findViewById(R.id.total_panels);
+        AdView ad;
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+            }
+        });
+        ad = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        ad.loadAd(adRequest);
 
 
         if (getSupportActionBar() != null) {

@@ -39,5 +39,6 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
     implementation 'com.github.apl-devs:appintro:5.1.0'
     implementation 'com.google.android.material:material:1.1.0-alpha10'
+    implementation 'com.google.android.gms:play-services-ads:18.2.0'
 
 }
