@@ -7,83 +7,188 @@
     tools:context=".ResultActivity">
 
 
-    <TextView
-        android:id="@+id/tvTotalPower"
+    <ScrollView
+        android:id="@+id/scro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="0"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="52sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="KWh (Kilowatt hour)"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTotalPower" />
+        <RelativeLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="1200dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:text="Rate Us"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="Total Solar Power Needed"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/result_bg"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="26dp">
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="5"
-        android:progressTint="@color/colorPrimary"
-        android:rating="0"
-        android:scaleX="0.7"
-        android:scaleY="0.7"
-        android:stepSize="0.5"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/solar" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
-        android:text="This is the amount of power your Solar Panel is required to generate so you can cover the appliances, for the duration you specified."
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView1" />
+
+                <TextView
+                    android:id="@+id/total_panels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:autofillHints="test_dh"
+                    android:text="--"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="105dp"
+                    android:gravity="center"
+
+                    android:text="300w per Solar Panel"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="test_dh"
+                    android:fontFamily=""
+                    android:text="RECOMMENDED PANELS"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+
+                    android:textStyle="normal" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="950dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/result_bg"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="26dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/solarr" />
+
+
+                <TextView
+                    android:id="@+id/tvTotalPower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:autofillHints="test_dh"
+                    android:text="--"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:gravity="center"
+                    android:text="KWh (kilowatt/hour)"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="test_dh"
+                    android:fontFamily=""
+                    android:text="SOLAR POWER NEEDED"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="normal" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/panels"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="360dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="100dp"
+                    android:numStars="5"
+                    android:progressTint="@color/colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="360dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="250dp"
+                    android:text="Rate Us" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
